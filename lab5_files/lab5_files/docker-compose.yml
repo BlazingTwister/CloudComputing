@@ -10,6 +10,17 @@ services:
         depends_on:
             - redis
 
+    # Adding PostgreSQL service
+    postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: mydb         # Name of the default database
+      POSTGRES_USER: ubuntu     # user
+      POSTGRES_PASSWORD: password  # User password
+    ports:
+      - "5432:5432"             # Mapping PostgreSQL port 5432
+
+
     redis:
         image: "redis:alpine"
         ports:
